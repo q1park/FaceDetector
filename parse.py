@@ -7,7 +7,7 @@ import imutils
 # https://github.com/ahmetozlu/face_recognition_crop
 
 # Open the input movie file
-input_movie = cv2.VideoCapture("assets/short1.mp4")
+input_movie = cv2.VideoCapture("assets/short2.mp4")
 current_path = os.getcwd()
 
 counter = 0
