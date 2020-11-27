@@ -4,7 +4,7 @@ Detect static faces in videos.
 ## Basic Usage
 ### Extraction
 ```bash
-python parse.py
+python parse.py --f assets/long1.mp4
 ```
 This generates a series of images of faces in `/cropped`.
 ### Image Similarity
