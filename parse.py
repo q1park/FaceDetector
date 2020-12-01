@@ -37,7 +37,7 @@ def main(fname: str):
             cv2.imwrite("cropped/" + str(counter).zfill(4) +".png", crop_img)
             counter +=  1
 
-        cv2.imshow('cropped', frame)
+        # cv2.imshow('cropped', frame)
         
         # Hit 'q' on the keyboard to quit
         if cv2.waitKey(1) & 0xFF == ord('q'):
