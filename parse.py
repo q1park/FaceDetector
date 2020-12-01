@@ -3,19 +3,16 @@ import cv2
 import os
 import imutils
 import argparse
+from typing import str
 
 
-def main(fname):
+def main(fname: str):
     """extract frames that contain faces.
     """
 
     # https://github.com/ahmetozlu/face_recognition_crop
 
-    # Open the input movie file
-    print("file", fname)
     input_movie = cv2.VideoCapture(fname)
-    current_path = os.getcwd()
-
     counter = 0
 
     while True:
@@ -26,7 +23,7 @@ def main(fname):
             break
 
         # Find all the faces in the current frame of video
-        frame = imutils.resize(frame, width=500)
+        # frame = imutils.resize(frame, width=500)
         # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         face_locations = face_recognition.face_locations(frame)
         
@@ -38,7 +35,8 @@ def main(fname):
 
             # crop image according to face
             crop_img = frame[top:bottom, left:right]
-            cv2.imwrite(current_path + "/cropped/" + str(counter).zfill(4) +".png", crop_img)
+            crop_img = cv2.resize(crop_img,(200, 200))  # sentinel is resizing to 200x200
+            cv2.imwrite("cropped/" + str(counter).zfill(4) +".png", crop_img)
             counter +=  1
 
         cv2.imshow('cropped', frame)
