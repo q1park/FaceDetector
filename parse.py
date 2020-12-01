@@ -3,7 +3,6 @@ import cv2
 import os
 import imutils
 import argparse
-from typing import str
 
 
 def main(fname: str):
@@ -11,7 +10,6 @@ def main(fname: str):
     """
 
     # https://github.com/ahmetozlu/face_recognition_crop
-
     input_movie = cv2.VideoCapture(fname)
     counter = 0
 
