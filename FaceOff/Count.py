@@ -3,10 +3,10 @@ from FaceOff import get_frame_idx, get_actor_ids, group_frames_by_actors, remove
 from glob import glob
 
 
-def count_static_faces(folder):
+def count_faces(folder: str, label: str) -> int:
+    """Count faces in a folder of images.
+    """
     count = 0
-
-    label = "not_static"  # what about non-static
     fnames = sorted(glob(folder + '/' + label + '/*'))  # list of images fname
     collection_by_actor = group_frames_by_actors(fnames)
 
