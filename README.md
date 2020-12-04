@@ -1,4 +1,5 @@
 [![Travis CI Shield](https://travis-ci.com/mynameisvinn/FaceDetector.svg?branch=master)](https://travis-ci.com/github/mynameisvinn/FaceDetector)
+[![codecov](https://codecov.io/gh/mynameisvinn/FaceDetector/branch/master/graph/badge.svg?token=PUSAA0P2CK)](https://codecov.io/gh/mynameisvinn/FaceDetector)
 
 # FaceOff
 Detect static faces in video.
@@ -11,7 +12,9 @@ The core function is:
 from FaceOff import count_faces
 
 folder = "dataset/608832786432738882426817735212"  # containing a series of images of cropped faces
-count_faces(folder, label="not_static")  # returns 0 since we're looking at non-static faces
+label = "static"  # static, non-static or not-static
+fnames = sorted(glob(folder + '/' + label + '/*'))  # list of file names corresponding to frames
+count_faces(fnames)  # returns 0 since we're looking at non-static faces
 ```
 
 # Methodology 
