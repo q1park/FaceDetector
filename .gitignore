@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 .DS_Store
 tests/__pycache__/test_count_faces.cpython-38-pytest-5.4.3.pyc
+tests/__pycache__/

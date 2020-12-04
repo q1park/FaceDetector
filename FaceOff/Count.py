@@ -1,13 +1,14 @@
+from typing import List
+
 from FaceOff import get_frame_idx, get_actor_ids, group_frames_by_actors, remove_outliers_from_snippet, create_snippets
 
 from glob import glob
 
 
-def count_faces(folder: str, label: str) -> int:
+def count_faces(fnames: List[str]) -> int:
     """Count faces in a folder of images.
     """
     count = 0
-    fnames = sorted(glob(folder + '/' + label + '/*'))  # list of images fname
     collection_by_actor = group_frames_by_actors(fnames)
 
     # then evaluate for each actor
@@ -26,5 +27,6 @@ def count_faces(folder: str, label: str) -> int:
 
             for final in final_snippets:
                 if len(final) > 10:
+                    print("len", len(final), final[0])
                     count += 1    
     return count
