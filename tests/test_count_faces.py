@@ -1,4 +1,4 @@
-from FaceOff import count_faces, get_actor_ids, group_frames_by_actors
+from FaceOff import count_static_faces, get_actor_ids, group_frames_by_actors
 
 from unittest import TestCase
 from glob import glob
@@ -10,21 +10,24 @@ class TestCount(TestCase):
         """counts for not-static images should equal zero.
         """
         label = "not_static"
+        threshold = 10
         
         folder = "data/547538174468711490516541559363"
         fnames = sorted(glob(folder + '/' + label + '/*'))
-        self.assertEqual(count_faces(fnames), 0)
+        self.assertEqual(count_static_faces(fnames, threshold=threshold), 0)
 
         folder = "data/608832786432738882426817735212"
         fnames = sorted(glob(folder + '/' + label + '/*'))
-        self.assertEqual(count_faces(fnames), 0)
+        self.assertEqual(count_static_faces(fnames, threshold=threshold), 0)
 
 
     def test_static_faces(self):
         label = "static"
+        threshold = 10
+        
         folder = "data/547538174468711490516541559363"
         fnames = sorted(glob(folder + '/' + label + '/*'))
-        self.assertGreater(count_faces(fnames), 0)
+        self.assertGreater(count_static_faces(fnames, threshold=threshold), 0)
 
 
     def test_get_actor_ids(self):

@@ -5,17 +5,18 @@
 Detect static faces in video.
 
 # Usage
-Run `Tutorial.ipynb`. 
+The core function is `count_faces(fnames)`. It accepts a `List[str]` (representing filenames of images) and returns an `int` (representing number of static faces).
 
-The core function is:
 ```python
 from FaceOff import count_faces
 
-folder = "dataset/608832786432738882426817735212"  # containing a series of images of cropped faces
-label = "static"  # static, non-static or not-static
-fnames = sorted(glob(folder + '/' + label + '/*'))  # list of file names corresponding to frames
+folder = "dataset/608832786432738882426817735212"  # images of cropped faces
+label = "static"  # could be static, non-static or not-static
+
+fnames = sorted(glob(folder + '/' + label + '/*'))  # list of image file names
 count_faces(fnames)  # returns 0 since we're looking at non-static faces
 ```
+An example can be found in `Tutorial.ipynb`. 
 
 # Methodology 
 ## Finding contiguous snippets
